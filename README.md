@@ -1604,6 +1604,32 @@ class { '::collectd::plugin::thermal':
 
 ```puppet
 class { 'collectd::plugin::threshold':
+  threshold_types => {
+    'cpu' => {
+       'warningmin' => '1',
+       'warningmax' => '1'
+    },
+    'memory' => {
+       'failuremin' => '1',
+       'invert' => true
+    }
+  },
+  threshold_plugins => {
+    'interface' => {
+      'threshold_instance' => 'eth0',
+      'threshold_type' => 'if_octets',
+        'warningmin' => '1',
+        'invert' => true,
+    }
+  },
+  threshold_hosts => {
+    'hostname1' => {
+      'threshold_plugin' => 'interface',
+        'threshold_type' => 'if_octets',
+          'warningmin' => '1',
+          'invert' => true,
+    }
+  }
 }
 ```
 
