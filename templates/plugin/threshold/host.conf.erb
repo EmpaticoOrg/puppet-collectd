@@ -1,0 +1,55 @@
+<Host "<%= @threshold_host %>">
+<% @values.each do |value| -%>
+<% if value['plugin'] %>
+  <Plugin "<%= value['plugin'] %>">
+<% end -%>
+<% if value['instance'] %>
+  Instance "<%= value['instance'] %>"
+<% end -%>
+  <Type "<%= value['type'] %>">
+<% if value['warningmin'] -%>
+    WarningMin <%= value['warningmin'] %>
+<% end -%>
+<% if value['warningmax'] -%>
+    WarningMax <%= value['warningmax'] %>
+<% end -%>
+<% if value['failuremin'] -%>
+    FailureMin <%= value['failuremin'] %>
+<% end -%>
+<% if value['failuremax'] -%>
+    FailureMax <%= value['failuremax'] %>
+<% end -%>
+<% if value['hits'] -%>
+    Hits <%= value['hits'] %>
+<% end -%>
+<% if value['hysteresis'] -%>
+    Hysteresis <%= value['hysteresis'] %>
+<% end -%>
+<% if value['invert'] -%>
+    Invert <%= value['invert'] %>
+<% end -%>
+<% if value['persist'] -%>
+    Persist <%= value['persist'] %>
+<% end -%>
+<% if value['persistok'] -%>
+    PersistOK <%= value['persistok'] %>
+<% end -%>
+<% if value['percentage'] -%>
+    Percentage <%= value['percentage'] %>
+<% end -%>
+<% if value['interesting'] -%>
+    Interesting <%= value['interesting'] %>
+<% end -%>
+<% if value['type_instance'] -%>
+    Instance "<%= value['type_instance'] %>"
+<% end -%>
+<% if value['datasource'] -%>
+    DataSource "<%= value['datasource'] %>"
+<% end -%>
+  </Type>
+<% if value['plugin'] %>
+    </Plugin>
+<% end -%>
+<% end -%>
+</Plugin>
+
